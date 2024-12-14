@@ -21,8 +21,8 @@ export class AppComponent {
     
     //login[i] odpowiada pwd[i]
   log:{login:string[], pwd:string[]}={
-    login:[],
-    pwd:[]
+    login:["admin","user"],
+    pwd:["admin123","123"]
   }
   
   //sprawdza czy login i hasło z inputa są w obiekcie log
