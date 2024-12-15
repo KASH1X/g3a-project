@@ -26,7 +26,7 @@ import { LoginComponent } from './login.component';
 export class AppComponent {
   title = 'g3a-project';
   //currentPage odnosi się do login.component
-  currentPage: any = MainpageComponent;
+  currentPage: any = LoginComponent;
 var1:string="var"
 
 log:{login:string[], pwd:string[]}={
