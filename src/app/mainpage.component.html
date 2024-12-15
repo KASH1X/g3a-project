@@ -6,6 +6,25 @@
     <title>Document</title>
 </head>
 <body>
+
+    <section id="gameSection"></section>
+
+
+<br>
+    <button (click)="drawkey()"> Draw Key </button>
     <button (click)="switchToLogin()">Log out</button>
+<br><br>
+    kody: 
+    <ol>
+        <li *ngFor="let zm3 of key.code">
+        {{zm3}}
+        </li>
+    </ol><br>
+ceny: 
+    <ol>
+        <li *ngFor="let zm4 of key.price" >
+        {{zm4}}
+        </li>
+    </ol>
 </body>
 </html>

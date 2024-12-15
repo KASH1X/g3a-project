@@ -9,12 +9,15 @@ import { MainpageComponent } from './mainpage.component';
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule, FormsModule, AppComponent, NgComponentOutlet],
   templateUrl: './login.component.html',
-  //styleUrl: './login.component.css'
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
   title = 'g3a-project';
 
   constructor(private appComponent: AppComponent) {
+    //przydziela dane kont z login.component do app.component aby te się nie usunęły po zmianie strony
+    //jeśli strona została otwarta po raz albo zostanie dodane konto to przydzieli z login.component do app.component
+    //a jeśli wrucisz na strone loginu to przydzieli dane z app.component do login.component bo domyślnie będą tam tylko 2 konta
     if(appComponent.log.login.length<=this.log.login.length){
         appComponent.log.login = this.log.login
         appComponent.log.pwd = this.log.pwd
@@ -22,9 +25,7 @@ export class LoginComponent {
         this.log.login = appComponent.log.login
         this.log.pwd = appComponent.log.pwd
     }
-
   }
-
   
     //zmienne z inputow
     templogin:string=""
@@ -60,7 +61,7 @@ export class LoginComponent {
         }
     }
   
-  //tworzy nowe konto aka wstawia wpisany login i hasło do tabeli log.login i log.pwd
+  //tworzy nowe konto aka wstawia wpisany login i hasło do tabeli log.login i log.pwd oraz odpowiednio aktualizuje tabele z app.component 
     createacc():void {
 
             if(this.log.login.includes(this.templogin)){
@@ -71,9 +72,7 @@ export class LoginComponent {
 
                 this.appComponent.log.login = this.log.login
                 this.appComponent.log.pwd = this.log.pwd
-
             }
-
     }
 
     switchToMain(): void {
