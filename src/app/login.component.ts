@@ -14,7 +14,16 @@ import { MainpageComponent } from './mainpage.component';
 export class LoginComponent {
   title = 'g3a-project';
 
-  constructor(private appComponent: AppComponent) {}
+  constructor(private appComponent: AppComponent) {
+    if(appComponent.log.login.length<=this.log.login.length){
+        appComponent.log.login = this.log.login
+        appComponent.log.pwd = this.log.pwd
+    }else if(appComponent.log.login.length>this.log.login.length){
+        this.log.login = appComponent.log.login
+        this.log.pwd = appComponent.log.pwd
+    }
+
+  }
 
   
     //zmienne z inputow
@@ -53,12 +62,22 @@ export class LoginComponent {
   
   //tworzy nowe konto aka wstawia wpisany login i hasło do tabeli log.login i log.pwd
     createacc():void {
-      this.log.login.push(this.templogin)
-      this.log.pwd.push(this.temppwd)
+
+            if(this.log.login.includes(this.templogin)){
+                alert("użytkownik o takim loginie już istnieje")
+            }else{
+                this.log.login.push(this.templogin)
+                this.log.pwd.push(this.temppwd)
+
+                this.appComponent.log.login = this.log.login
+                this.appComponent.log.pwd = this.log.pwd
+
+            }
+
     }
 
     switchToMain(): void {
-        this.appComponent.switchTemplate(MainpageComponent);
+        this.appComponent.switchTemplate(MainpageComponent)
       }
 
 }
