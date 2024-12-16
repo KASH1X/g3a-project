@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     <form action="">
-    Login: <input type="text" [(ngModel)]="templogin" name="templogin"><br>
-    Password: <input type="text" [(ngModel)]="temppwd" name="temppwd"><br><br>
-    <button (click)="loginatt()"> LogIn </button>
-    <button (click)="createacc()"> Create Account </button>
+        <h1>ZALOGUJ SIE/ZAREJETRUJ SIE</h1>
+        <h2>Login:</h2> 
+        <input type="text" [(ngModel)]="templogin" name="templogin"><br>
+        <h2>Password:</h2>
+        <input type="password" [(ngModel)]="temppwd" name="temppwd"><br><br>
+        <button (click)="loginatt()"> LogIn </button>
+        <button (click)="createacc()"> Create Account </button>
 
     </form>
 <br><br>
 <!-- do testowania wypisuje konta,
 może sie to usunie -->
-loginy: 
+<!-- loginy: 
     <ol>
         <li *ngFor="let zm1 of log.login">
         {{zm1}}
@@ -27,4 +31,4 @@ hasła:
         <li *ngFor="let zm2 of log.pwd" >
         {{zm2}}
         </li>
-    </ol>
+    </ol> -->
